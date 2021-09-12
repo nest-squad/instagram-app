@@ -2,16 +2,20 @@ import { ChakraProvider, Container } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Navigator } from './components/Navigator';
+import { UserProvider } from './context/User';
 import { Routes } from './routes';
+
 
 function App() {
   return (
     <BrowserRouter>
       <ChakraProvider>
-        <Navigator />
-        <Container maxW="container.lg">
-          <Routes />
-        </Container>
+        <UserProvider>
+          <Navigator />
+          <Container maxW="container.lg">
+            <Routes />
+          </Container>
+        </UserProvider>
       </ChakraProvider>
     </BrowserRouter>
   );
